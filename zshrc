@@ -70,5 +70,11 @@ export EDITOR=code
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
 sudo /etc/init.d/postgresql start
-source /home/ldslucca/.rvm/scripts/rvm
-source /usr/share/rvm/scripts/rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#source /home/ldslucca/.rvm/scripts/rvm
+#source /usr/share/rvm/scripts/rvm
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+#sudo /etc/init.d/postgresql start
